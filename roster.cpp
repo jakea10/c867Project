@@ -20,4 +20,5 @@ void Roster::add(string studentID, string firstName, string lastName,
                  DegreeProgram degreeProgram)
 {
     //TODO: Create a new Student object and add to classRosterArray
+    
 }
