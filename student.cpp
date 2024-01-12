@@ -62,11 +62,13 @@ void Student::SetDegreeProgram(DegreeProgram degreeProgram) {
 void Student::Print() const {
     cout << studentID << "\t";
     cout << firstName << "\t";
-    cout << lastName << "\t\t";
+    cout << lastName << "\t";
+    cout << "Age: " << age << "\t";
     // TODO: cout daysInCourse
-    cout << "{" << daysInCourse[0] << ",";
+    cout << "daysInCourse: {" << daysInCourse[0] << ",";
     cout << daysInCourse[1] << ",";
     cout << daysInCourse[2] << "}\t";
+    cout << "Degree Program: ";
     switch (degreeProgram) {
         case SECURITY: cout << "SECURITY" << endl; break;
         case NETWORK: cout << "NETWORK" << endl; break;
