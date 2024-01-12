@@ -64,7 +64,6 @@ void Student::Print() const {
     cout << firstName << "\t";
     cout << lastName << "\t";
     cout << "Age: " << age << "\t";
-    // TODO: cout daysInCourse
     cout << "daysInCourse: {" << daysInCourse[0] << ",";
     cout << daysInCourse[1] << ",";
     cout << daysInCourse[2] << "}\t";
@@ -74,4 +73,6 @@ void Student::Print() const {
         case NETWORK: cout << "NETWORK" << endl; break;
         case SOFTWARE: cout << "SOFTWARE" << endl; break;
     }
+    // FOR TESTING ONLY
+    //cout << "A call to the print() function has been made." << endl;
 }

@@ -16,6 +16,7 @@ class Student {
         int daysInCourse[3];
         DegreeProgram degreeProgram;
     public:
+        // Constructor
         Student(
             string studentID,
             string firstName,

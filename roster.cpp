@@ -19,7 +19,7 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
                  int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram)
 {
     // Dynamically construct a new Student object and add its pointer to classRosterArray
-    for (int i = 0; i < CAPACITY; i++) {
+    for (int i = 0; i < numStudents; i++) {
         if (classRosterArray[i] == nullptr) {
             int daysInCourse[3] = {daysInCourse1, daysInCourse2, daysInCourse3};
             classRosterArray[i] = new Student(
@@ -72,11 +72,11 @@ void Roster::remove(string studentID) {
     // TODO: Destructor
 
     // Remove given student from class roster
-    for (int i = 0; i < CAPACITY; i++) {
-        if (classRosterArray[i] != nullptr &&
-            classRosterArray[i]->GetStudentID() == studentID) {
-            delete classRosterArray[i];     // deallocate the Student object's memory
-            classRosterArray[i] = nullptr;  // clear the spot in the roster
+    for (int student = 0; student < numStudents; student++) {
+        if (classRosterArray[student] != nullptr &&
+            classRosterArray[student]->GetStudentID() == studentID) {
+            delete classRosterArray[student];     // deallocate the Student object's memory
+            classRosterArray[student] = nullptr;  // clear the spot in the roster
             return;
         }
     }
@@ -86,9 +86,28 @@ void Roster::remove(string studentID) {
 
 // Other
 void Roster::printAll() const {
-    for (int i = 0; i < CAPACITY; i++) {
-        if (classRosterArray[i] != nullptr) {     // nullptr indicates no Student
-            classRosterArray[i]->Print();
+    for (int student = 0; student < numStudents; student++) {
+        if (classRosterArray[student] != nullptr) {     // nullptr indicates no Student
+            classRosterArray[student]->Print();
+        }
+    }
+}
+
+void Roster::printAverageDaysInCourse(string studentID) const {
+    // First, search for a matching Student
+    for (int student = 0; student < numStudents; student++) {
+        if (classRosterArray[student] != nullptr &&
+            classRosterArray[student]->GetStudentID() == studentID) {
+            // Found, now calculate average days in course
+            int totalDays = 0;
+            int numCourses = 3;
+            for (int course = 0; course < numCourses; course++) {
+                totalDays += classRosterArray[student]->GetDaysInCourse(course);
+            }
+            cout << "Student ID: " << studentID << ", ";
+            cout << "average days in course is: ";
+            cout << (double) totalDays / (double) numCourses << endl;
+            return;
         }
     }
 }

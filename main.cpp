@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <sstream>
-#include <vector>
 #include "student.h"
 #include "roster.h"
+
 
 int main() {
     const int NUM_STUDENTS = 5;
@@ -15,25 +14,14 @@ int main() {
         "A5,Jacob,Atencio,jatenc2@wgu.edu,30,10,1,6,SOFTWARE"
     };
 
-    //Student* classRoster[5];
     Roster classRoster = Roster();
     for (int i = 0; i < NUM_STUDENTS; i++) {
         classRoster.parse(studentData[i]);
     }
     classRoster.printAll();
+    cout << endl;
+    classRoster.printAverageDaysInCourse("A2");
 
-    // int daysInCourse[] = {10, 1, 6};
-    // Student* jake = new Student("A5", "Jacob", "Atencio", "jatenc2@wgu.edu", 30, daysInCourse, SOFTWARE);
-    // jake->Print();
-    // cout << jake->GetDaysInCourse(2) << endl;
-    // jake->SetDaysInCourse(1, 9);
-    // jake->Print();
-
-    // classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, daysInCourse, SECURITY);
-    // classRoster.add("A2", "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, daysInCourse, NETWORK);
-    // classRoster.add("A3", "Jack", "Napoli", "The_lawyer99yahoo.com", 19, daysInCourse, SOFTWARE);
-    // classRoster.add("A4", "Erin", "Black", "Erin.black@comcast.net", 22, daysInCourse, SECURITY);
-    // classRoster.add("A5", "Jacob", "Atencio", "jatenc2@wgu.edu", 30, daysInCourse, SOFTWARE);
     
     // classRoster.printAll();
     // cout << endl;
@@ -46,5 +34,4 @@ int main() {
     // classRoster.add("A4", "Erin", "Black", "Erin.black@comcast.net", 22, daysInCourse, SECURITY);
     // classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, daysInCourse, SECURITY);
     // classRoster.printAll();
-
 }
