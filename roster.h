@@ -21,6 +21,7 @@ class Roster {
         void remove(string studentID);
         void printAll() const;
         void printAverageDaysInCourse(string studentID) const;
+        void printInvalidEmails() const;
 };
 
 #endif

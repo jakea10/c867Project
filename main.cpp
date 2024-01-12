@@ -21,6 +21,8 @@ int main() {
     classRoster.printAll();
     cout << endl;
     classRoster.printAverageDaysInCourse("A2");
+    cout << endl;
+    classRoster.printInvalidEmails();
 
     
     // classRoster.printAll();

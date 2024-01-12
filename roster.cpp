@@ -111,3 +111,21 @@ void Roster::printAverageDaysInCourse(string studentID) const {
         }
     }
 }
+
+void Roster::printInvalidEmails() const {
+    // Verify student email addresses and display invalid addresses
+    // A valid email is defined as having:
+    // - an '@' sign
+    // - a period '.'
+    // - no spaces
+    string currEmail;
+    for (int student = 0; student < numStudents; student++) {
+        currEmail = classRosterArray[student]->GetEmailAddress();
+        if (currEmail.find(' ') != string::npos ||
+            currEmail.find('@') == string::npos ||
+            currEmail.find('.') == string::npos) {
+            cout << currEmail << " - is invalid." << endl;
+            continue;
+        }
+    }
+}
