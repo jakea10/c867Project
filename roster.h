@@ -22,6 +22,7 @@ class Roster {
         void printAll() const;
         void printAverageDaysInCourse(string studentID) const;
         void printInvalidEmails() const;
+        void printByDegreeProgram(DegreeProgram degreeProgram) const;
 };
 
 #endif

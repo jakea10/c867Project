@@ -53,7 +53,7 @@ void Roster::parse(string studentData) {
     int daysInCourse3    = stoi(parsedData.at(7));
     string programString = parsedData.at(8);
 
-    DegreeProgram degreeProgram;
+    DegreeProgram degreeProgram = SECURITY;
     if (programString == "SECURITY") {
         degreeProgram = SECURITY;
     }
@@ -126,6 +126,14 @@ void Roster::printInvalidEmails() const {
             currEmail.find('.') == string::npos) {
             cout << currEmail << " - is invalid." << endl;
             continue;
+        }
+    }
+}
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) const {
+    for (int student = 0; student < numStudents; student++) {
+        if (classRosterArray[student]->GetDegreeProgram() == degreeProgram) {
+            classRosterArray[student]->Print();
         }
     }
 }

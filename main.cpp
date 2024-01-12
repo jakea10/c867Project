@@ -20,20 +20,11 @@ int main() {
     }
     classRoster.printAll();
     cout << endl;
-    classRoster.printAverageDaysInCourse("A2");
+    for (auto& student : classRoster.classRosterArray) {
+        classRoster.printAverageDaysInCourse(student->GetStudentID());
+    }
     cout << endl;
     classRoster.printInvalidEmails();
-
-    
-    // classRoster.printAll();
-    // cout << endl;
-    // classRoster.remove("A1");
-    // classRoster.remove("A4");
-    // classRoster.printAll();
-    // cout << endl;
-    // classRoster.remove("B1");
-    // cout << endl;
-    // classRoster.add("A4", "Erin", "Black", "Erin.black@comcast.net", 22, daysInCourse, SECURITY);
-    // classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, daysInCourse, SECURITY);
-    // classRoster.printAll();
+    cout << endl;
+    classRoster.printByDegreeProgram(SOFTWARE);
 }
