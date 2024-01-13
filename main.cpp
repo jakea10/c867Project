@@ -5,6 +5,16 @@
 
 
 int main() {
+    // F.1
+    cout << "C867-Scripting & Programming: Applications" << endl;
+    cout << "Language: C++" << endl;
+    cout << "Student ID: 001304752" << endl;
+    cout << "Name: Jacob Atencio" << endl << endl;
+
+    // F.2
+    Roster classRoster = Roster();
+
+    // F.3
     const int NUM_STUDENTS = 5;
     const string studentData[] = {
         "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -14,17 +24,32 @@ int main() {
         "A5,Jacob,Atencio,jatenc2@wgu.edu,30,10,1,6,SOFTWARE"
     };
 
-    Roster classRoster = Roster();
     for (int i = 0; i < NUM_STUDENTS; i++) {
         classRoster.parse(studentData[i]);
     }
+
+    // F.4
     classRoster.printAll();
     cout << endl;
+
+    classRoster.printInvalidEmails();
+    cout << endl;
+
     for (auto& student : classRoster.classRosterArray) {
         classRoster.printAverageDaysInCourse(student->GetStudentID());
     }
     cout << endl;
-    classRoster.printInvalidEmails();
-    cout << endl;
+
     classRoster.printByDegreeProgram(SOFTWARE);
+    cout << endl;
+
+    classRoster.remove("A3");
+    classRoster.printAll();
+    cout << endl;
+    classRoster.remove("A3");
+
+    // F.5
+    // Call the destructor to release the memory that was allocated dynamically
+    // for each Student object in classRoster
+    classRoster.~Roster();
 }

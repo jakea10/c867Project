@@ -73,6 +73,4 @@ void Student::Print() const {
         case NETWORK: cout << "NETWORK" << endl; break;
         case SOFTWARE: cout << "SOFTWARE" << endl; break;
     }
-    // FOR TESTING ONLY
-    //cout << "A call to the print() function has been made." << endl;
 }

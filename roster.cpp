@@ -14,6 +14,15 @@ Roster::Roster() {
     }
 }
 
+// Destructor
+Roster::~Roster() {
+    for (auto& student : classRosterArray) {
+        if (student != nullptr) {
+            delete student;
+        }
+    }
+}
+
 // Mutators
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age,
                  int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram)
@@ -69,7 +78,7 @@ void Roster::parse(string studentData) {
 }
 
 void Roster::remove(string studentID) {
-    // TODO: Destructor
+    // TODO: Implement Student destructor
 
     // Remove given student from class roster
     for (int student = 0; student < numStudents; student++) {
@@ -81,7 +90,7 @@ void Roster::remove(string studentID) {
         }
     }
 
-    cout << "Student not found." << endl;   // no match occurred
+    cout << "Student with ID: " << studentID << " was not found." << endl;   // no match occurred
 }
 
 // Other
@@ -104,6 +113,7 @@ void Roster::printAverageDaysInCourse(string studentID) const {
             for (int course = 0; course < numCourses; course++) {
                 totalDays += classRosterArray[student]->GetDaysInCourse(course);
             }
+            // Output results
             cout << "Student ID: " << studentID << ", ";
             cout << "average days in course is: ";
             cout << (double) totalDays / (double) numCourses << endl;
