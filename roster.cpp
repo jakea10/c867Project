@@ -78,8 +78,6 @@ void Roster::parse(string studentData) {
 }
 
 void Roster::remove(string studentID) {
-    // TODO: Implement Student destructor
-
     // Remove given student from class roster
     for (int student = 0; student < numStudents; student++) {
         if (classRosterArray[student] != nullptr &&

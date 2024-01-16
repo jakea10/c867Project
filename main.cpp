@@ -47,9 +47,4 @@ int main() {
     classRoster.printAll();
     cout << endl;
     classRoster.remove("A3");
-
-    // F.5
-    // Call the destructor to release the memory that was allocated dynamically
-    // for each Student object in classRoster
-    classRoster.~Roster();
 }
